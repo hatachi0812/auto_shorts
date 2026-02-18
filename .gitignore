@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+
+# Node.js
+node_modules/
+.next/
+.vercel/
+
+# Environment
+.env
+*.env.local
+
+# Database
+local.db
+*.db-journal
+
+# Media (대용량 파일)
+media/uploads/
+media/outputs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.cursor/
+.vscode/
