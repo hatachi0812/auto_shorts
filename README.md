@@ -10,14 +10,40 @@ YouTube URL → yt-dlp 다운로드 → Whisper STT → GPT-4o 하이라이트 �
 
 ## 시작하기
 
-### 1. 환경 변수 설정
+### 🚀 빠른 시작 (권장)
+
+**Windows:**
+- `start_app.bat` 파일을 더블 클릭하세요!
+
+**Mac:**
+- `start_app.command` 파일을 더블 클릭하세요! (Finder에서 더블 클릭하면 터미널에서 자동 실행됩니다)
+
+**Linux:**
+```bash
+./start_app.sh
+```
+
+스크립트가 자동으로:
+1. FastAPI 서버를 시작합니다 (포트 8000)
+2. Next.js 서버를 시작합니다 (포트 3000)
+3. 브라우저를 열어 http://localhost:3000 으로 이동합니다
+
+**서버 종료:**
+- Windows: `stop_app.bat` 더블 클릭
+- Mac/Linux: `./stop_app.sh` 실행
+
+---
+
+### 수동 실행 방법
+
+#### 1. 환경 변수 설정
 
 ```bash
 cp .env.example .env
 # .env 파일을 열어 OPENAI_API_KEY를 입력하세요
 ```
 
-### 2. 백엔드 설치 및 실행
+#### 2. 백엔드 설치 및 실행
 
 ```bash
 cd apps/api
@@ -27,7 +53,7 @@ uvicorn main:app --reload --port 8000
 
 API 문서: http://localhost:8000/docs
 
-### 3. 프론트엔드 설치 및 실행
+#### 3. 프론트엔드 설치 및 실행
 
 ```bash
 cd apps/web
