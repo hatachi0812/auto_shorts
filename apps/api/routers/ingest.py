@@ -37,6 +37,26 @@ def _download_video(project_id: int, url: str, output_dir: str):
             "merge_output_format": "mp4",
             "quiet": False,
             "no_warnings": False,
+            # YouTube 403 오류 해결을 위한 옵션
+            "extractor_args": {
+                "youtube": {
+                    "player_client": ["android"],  # android 클라이언트 사용 (403 오류 회피)
+                }
+            },
+            # User-Agent 설정 (최신 Chrome)
+            "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+            # 재시도 설정
+            "retries": 10,
+            "fragment_retries": 10,
+            # 추가 헤더 설정
+            "http_headers": {
+                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                "Accept-Language": "en-us,en;q=0.5",
+                "Accept-Encoding": "gzip, deflate",
+                "Accept-Charset": "ISO-8859-1,utf-8;q=0.7,*;q=0.7",
+                "Keep-Alive": "300",
+                "Connection": "keep-alive",
+            },
         }
 
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:

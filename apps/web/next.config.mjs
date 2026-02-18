@@ -15,7 +15,19 @@ const nextConfig = {
       ...config.resolve.alias,
       canvas: false,
     };
+    
+    // symlink 해석 비활성화 (모듈 해석 안정성 향상)
+    config.resolve.symlinks = false;
+    
     return config;
+  },
+  experimental: {
+    serverComponentsExternalPackages: [],
+  },
+  // 개발 모드에서 더 안정적인 빌드
+  onDemandEntries: {
+    maxInactiveAge: 25 * 1000,
+    pagesBufferLength: 2,
   },
 };
 
